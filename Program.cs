@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,11 @@ builder.ConfigureFunctionsWebApplication();
 builder.Services.Configure<KestrelServerOptions>(options =>
 {
     options.Limits.MaxRequestBodySize = 1024 * 1024 * 100; // 100 MB
+});
+
+builder.Services.AddSingleton(s =>
+{ string connectionString = Environment.GetEnvironmentVariable("CosmosDBConnection"); 
+  return new CosmosClient(connectionString); 
 });
 
 builder.Build().Run();
