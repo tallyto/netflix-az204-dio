@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
-namespace lyto.dioflix
+namespace netflix_az204_dio
 {
-    public class fnPostDataStorage
+    public class FnPostDataStorage
     {
-        private readonly ILogger<fnPostDataStorage> _logger;
+        private readonly ILogger<FnPostDataStorage> _logger;
 
-        public fnPostDataStorage(ILogger<fnPostDataStorage> logger)
+        public FnPostDataStorage(ILogger<FnPostDataStorage> logger)
         {
             _logger = logger;
         }

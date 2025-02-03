@@ -4,13 +4,13 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace lyto.dioflix
+namespace netflix_az204_dio
 {
-    public class fnPostDatabase
+    public class FnPostDatabase
     {
-        private readonly ILogger<fnPostDatabase> _logger;
+        private readonly ILogger<FnPostDatabase> _logger;
 
-        public fnPostDatabase(ILogger<fnPostDatabase> logger)
+        public FnPostDatabase(ILogger<FnPostDatabase> logger)
         {
             _logger = logger;
         }
@@ -18,7 +18,7 @@ namespace lyto.dioflix
         [Function("fnPostDatabase")]
         [CosmosDBOutput(
             "%DatabaseName%", "movies", Connection = "CosmosDBConnection", CreateIfNotExists = true, PartitionKey = "/id")]
-        public async Task<object?> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
+        public async Task<object?> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
         {
 
             MovieRequest? movie = null;

@@ -5,14 +5,14 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
-namespace lyto.dioflix
+namespace netflix_az204_dio
 {
-    public class fnGetMovieDetail
+    public class FnGetMovieDetail
     {
-        private readonly ILogger<fnGetMovieDetail> _logger;
+        private readonly ILogger<FnGetMovieDetail> _logger;
         private readonly CosmosClient _cosmosClient;
 
-        public fnGetMovieDetail(ILogger<fnGetMovieDetail> logger, CosmosClient cosmosClient)
+        public FnGetMovieDetail(ILogger<FnGetMovieDetail> logger, CosmosClient cosmosClient)
         {
             _logger = logger;
             _cosmosClient = cosmosClient;

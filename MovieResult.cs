@@ -1,4 +1,4 @@
-namespace lyto.dioflix
+namespace netflix_az204_dio
 {
     internal class MovieResult
     {

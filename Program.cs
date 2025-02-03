@@ -19,7 +19,7 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 });
 
 builder.Services.AddSingleton(s =>
-{ string connectionString = Environment.GetEnvironmentVariable("CosmosDBConnection"); 
+{ string? connectionString = Environment.GetEnvironmentVariable("CosmosDBConnection"); 
   return new CosmosClient(connectionString); 
 });
 
